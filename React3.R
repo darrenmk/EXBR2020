@@ -1,4 +1,4 @@
-setwd('D:\\Data\\Documents\\Research\\Tutorial\\')
+setwd('')
 
 subjects <- read.csv('React3Subjects.csv')
 codes <- read.csv('React3Matrix.csv')
