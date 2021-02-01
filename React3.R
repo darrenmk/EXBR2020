@@ -1,4 +1,4 @@
-setwd('')
+setwd('D:\\Data\\Documents\\Scripts\\EXBR2020')
 
 subjects <- read.csv('React3Subjects.csv')
 codes <- read.csv('React3Matrix.csv')
@@ -8,13 +8,11 @@ data_append <- {}
 
 for (s in 1:dim(subjects)[1]){
   
-  #print(s)
   file_append <- {}
   
   for (b in 1:4){
     
     filename <- paste('RawData\\react', subjects$sID[s], '_0', b, '_0.MLOG', sep="")
-    #print(filename)
     
     file0 = read.table(filename, sep="\t", header=FALSE, fill=TRUE)
     
@@ -51,10 +49,10 @@ for (i in 1:dim(data_append)[1]){
   newCode[i] <- which(data_append[i,3]==codes$code)
 }
 
-data_append[,3] <- newCode
+data_append[,3] <- newCode # replace old codes with new codes
 
 
-## simple outlier removal
+## Outlier removal
 
 allOutliers <- as.logical(rep(FALSE,dim(data_append)[1])) # first make this all FALSE
 for (o in 1:27){
